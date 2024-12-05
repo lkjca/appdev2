@@ -11,6 +11,6 @@ public class BakeryContext: DbContext
     }
      protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new ProductConfiguration()).Seed();
+        modelBuilder.ApplyConfiguration(new ProductConfiguration()).Seed();//initiate data
     }
 }

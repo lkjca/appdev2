@@ -1,0 +1,28 @@
+﻿@page "{id}"
+@model MyFriends.Pages.DetailModel
+@{
+    ViewData["Title"] = "Friend Details";
+}
+<a href="/">Back to List</a>
+@if (Model.Friend != null)
+{
+    <h1>@Model.Friend?.Name's Details</h1>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Name: @Model.Friend?.Name</h5>
+            <p class="card-text">Age: @Model.Friend?.Age</p>
+            <!-- Edit Button -->
+            <form method="post" asp-page-handler="Edit" asp-route-id="@Model.Friend?.Id">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+            <!-- Delete Button -->
+            <form method="post" asp-page-handler="Delete" asp-route-id="@Model.Friend?.Id" onsubmit="return confirm('Are you sure you want to delete this friend?');">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <p>Friend not found.</p>
+}

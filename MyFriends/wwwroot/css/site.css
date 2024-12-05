@@ -1,5 +1,3 @@
-@import "../lib/bootstrap/dist/scss/functions";
-@import "../lib/bootstrap/dist/scss/variables";
 html {
   font-size: 14px;
 }
@@ -31,26 +29,3 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
-
-.navbar-nav {
-  justify-content: flex-end;
-}
-.navbar-brand{
-  font-family: Limelight, sans-serif;
-  font-size: 2.5rem;
-}
-
-.input-validation-error, 
-.input-validation-error:focus {
-  background: #f1aeb5;
-  color: #dc3545;
-}
-.input-validation-error:focus{
-  border-color: #dc3545;
-  box-shadow: 0 0 0 0.2rem #f1aeb5;
-}
-    
-.field-validation-error,
-.validation-summary-errors {
-  color: #dc3545;
-}/*# sourceMappingURL=site.css.map */

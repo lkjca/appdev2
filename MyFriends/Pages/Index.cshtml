@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Friends List";
+}
+
+<h1>Friends List</h1>
+
+<table border="1" style="width:100%; text-align: left;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var friend in Model.Friends)
+        {
+            <tr>
+                <td>@friend.Id</td>
+                <td>
+                    <a href="/Detail/@friend.Id">@friend.Name</a>
+                </td>
+                <td>@friend.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>

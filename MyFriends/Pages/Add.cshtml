@@ -1,0 +1,23 @@
+﻿@page
+@model MyFriends.Pages.AddModel
+@{
+ViewData["Title"] = "Add Friend";
+}
+
+<h1>Add a New Friend</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Friend.Name">Name:</label>
+        <input asp-for="Friend.Name" class="form-control" />
+        <span asp-validation-for="Friend.Name"></span>
+    </div>
+    <div>
+        <label asp-for="Friend.Age">Age:</label>
+        <input asp-for="Friend.Age" class="form-control" />
+        <span asp-validation-for="Friend.Age"></span>
+    </div>
+    <button type="submit">Add Friend</button>
+</form>
+
+<a href="/">Back to List</a>
