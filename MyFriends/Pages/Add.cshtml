@@ -8,14 +8,14 @@ ViewData["Title"] = "Add Friend";
 
 <form method="post">
     <div>
-        <label asp-for="Friend.Name">Name:</label>
-        <input asp-for="Friend.Name" class="form-control" />
-        <span asp-validation-for="Friend.Name"></span>
+        <label asp-for="NewFriend.Name">Name:</label>
+        <input asp-for="NewFriend.Name" class="form-control" />
+        <span asp-validation-for="NewFriend.Name"></span>
     </div>
     <div>
-        <label asp-for="Friend.Age">Age:</label>
-        <input asp-for="Friend.Age" class="form-control" />
-        <span asp-validation-for="Friend.Age"></span>
+        <label asp-for="NewFriend.Age">Age:</label>
+        <input asp-for="NewFriend.Age" class="form-control" />
+        <span asp-validation-for="NewFriend.Age"></span>
     </div>
     <button type="submit">Add Friend</button>
 </form>

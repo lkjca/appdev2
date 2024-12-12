@@ -9,6 +9,7 @@ namespace MyFriends.Data
     {
         public void Configure(EntityTypeBuilder<Friend> builder)
         {
+            //Fluent API can be used here to specify additional requirements on entities, like FK, rename...
             builder.Property(f => f.Name)
                 .IsRequired() 
                 .HasMaxLength(50);

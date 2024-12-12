@@ -23,5 +23,31 @@ namespace MyFriends.Pages
             }
             
         }
+
+        public async Task<IActionResult> OnPostUpdateAsync([FromBody] Friend updatedFriend)
+        {
+            if (updatedFriend == null)
+            {
+                return new JsonResult(new { success = false, error = "Invalid data" });
+            }
+
+            var friend = await context.Friends.FindAsync(updatedFriend.Id);
+            if (friend == null)
+            {
+                return new JsonResult(new { success = false, error = "Friend not found" });
+            }
+
+            // Only update if the new values are provided
+            if (!string.IsNullOrEmpty(updatedFriend.Name))
+                friend.Name = updatedFriend.Name;
+
+            if (updatedFriend.Age > 0)
+                friend.Age = updatedFriend.Age;
+
+            context.Friends.Update(friend);
+            await context.SaveChangesAsync();
+
+            return new JsonResult(new { success = true });
+        }
     }
 }

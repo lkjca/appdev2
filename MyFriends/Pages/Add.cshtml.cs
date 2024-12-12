@@ -10,12 +10,12 @@ namespace MyFriends.Pages
 {
     public class AddModel : PageModel
     {
-        private readonly AppDbContext context;
+        private readonly AppDbContext context;//readonly is similar to final, assign to it once and then can't change it 
 
-        public AddModel(AppDbContext context) => this.context = context;
+        public AddModel(AppDbContext context) => this.context = context;//lamda same as: { this.context = context;}
 
         [BindProperty]
-        public Friend Friend { get; set; } = new();
+        public Friend NewFriend { get; set; } = new();
 
         public void OnGet()
         {
@@ -29,7 +29,7 @@ namespace MyFriends.Pages
                 return Page(); // return to list and show errors
             }
              // check if already exists
-            bool exists = context.Friends.Any(f => f.Name == Friend.Name && f.Age == Friend.Age);
+            bool exists = context.Friends.Any(f => f.Name == NewFriend.Name && f.Age == NewFriend.Age);
 
             if (exists)
             {
@@ -37,7 +37,7 @@ namespace MyFriends.Pages
                 return Page();
             }
             // Add to database
-            context.Friends.Add(Friend);
+            context.Friends.Add(NewFriend);
             await context.SaveChangesAsync();
 
             // Redirect to the home page
